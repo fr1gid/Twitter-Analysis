@@ -1,34 +1,39 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import './App.css';
 
-export default class FormSubmission extends React.Component {
-  constructor(props) {
-    super(props);
+import Sentiment from 'sentiment';
+const sentiment = new Sentiment();
 
-    this.state = {
-      searchQuery: ""
-    }
-  }
+function App() {
 
-  handleInputChanged(event) {
-    this.setState({
-      searchQuery: event.target.value
-    });
-  }
+  const [phrase, setPhrase] = useState('');
+  const [sentimentScore, setSentimentScore] = useState(null);
 
-  handleButtonClicked() {
-    var searchQuery = this.state.searchQuery;
-  }
+  useEffect(() => {
+    setSentimentScore(sentiment.analyze(phrase));
+  }, [phrase]);
 
-  render() {
-    return  (
-      <div>
-        <input type="text" value={this.state.searchQuery} onChange={this.handleInputChanged.bind(this)}/>
-        <button onClick={this.handleButtonClicked.bind(this)}>
-          Submit
-        </button>
-      </div>
-    );
-  }
+  return (
+    <div className="App">
+      <header className="App-header">
+        <h2>Sentiment Analysis</h2>
+
+        <input value={phrase} onChange={e => setPhrase(e.target.value)}
+          style={{ padding: '20px', fontSize: '20px', width: '90%' }}
+        />
+
+        {
+          sentimentScore !== null ?
+            <p>Sentiment Score: {sentimentScore.score}</p>
+            : ''
+        }
+
+        {
+        }
+      </header>
+    </div>
+  );
 }
 
+export default App;
 
