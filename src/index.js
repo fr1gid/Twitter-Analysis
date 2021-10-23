@@ -5,10 +5,10 @@ import App from './App';
 import { TwitterClient } from 'twitter-api-client';
 
 const twitterClient = new TwitterClient({
-  apiKey: '<YOUR-TWITTER-API-KEY>',
-  apiSecret: '<YOUR-TWITTER-API-SECRET>',
-  accessToken: '<YOUR-TWITTER-ACCESS-TOKEN>',
-  accessTokenSecret: '<YOUR-TWITTER-ACCESS-TOKEN-SECRET>',
+  apiKey: '<1OpsPpaPvqWtg0M4Q3ZDa44fk>',
+  apiSecret: '<6wXI9TJLeGMOMtXx4pnLoNm5UfsqsArXSWkH9OGxSTFY9GoLrG>',
+  accessToken: '<1335744879369052160-pDBFJabJ9a10OUsyDaTJ68ccxfIhFB>',
+  accessTokenSecret: '<vuxTI7VspWHDVWj5OfUoZd9RlhQtrg3Vk13rVpcYJUVO4>',
 });
 
 // Search for a user
